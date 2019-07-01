@@ -42,7 +42,7 @@ class LineChart extends Component{
             <div>
                 {/* Async render */}
                 { this.state && this.state.data &&
-                 <div><D3line data= {this.state.data} />  </div>
+                 <div><D3line data= {this.state.data} /> </div>
                 }
             </div>
         ) 

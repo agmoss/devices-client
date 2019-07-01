@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
 
-import { scaleLinear } from 'd3-scale'
-import { max } from 'd3-array'
-import { select } from 'd3-selection'
-
 import * as d3 from "d3";
 
 class D3line extends Component {
@@ -26,15 +22,13 @@ class D3line extends Component {
 
         const data = this.props.data;
 
-        console.log(data);
-
         // set the dimensions and margins of the graph
         var margin = {top: 10, right: 100, bottom: 30, left: 100},
-            width = 2000 - margin.left - margin.right,
-            height = 800 - margin.top - margin.bottom;
+            width = 1000 - margin.left - margin.right,
+            height = 400 - margin.top - margin.bottom;
 
-        // append the svg object to the body of the page
-        var svg = d3.select("body")
+        // APPEND THE SVG TO !!!!lineDiv!!!!
+        var svg = d3.select("#lineDiv")
         .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
