@@ -1,33 +1,68 @@
-.App {
-  text-align: center;
+.dashboardRow {
+  margin-top: 20px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.dashboardPanel {
+  margin-top: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card {
+  border: none;
+  width: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.card-body {
+  background: rgba(184, 255, 222,0.5);
+  padding: 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-title {
+  margin: 0.2rem;
+}
+
+.bg-light {
+    background-color: rgb(184, 255, 222)!important;
+}
+
+.navbar-light .navbar-brand {
+    color: rgba(255,255,255,.9);
+}
+
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+    color: rgba(255,255,255,1);
+}
+
+.btn-outline-success {
+    color: white;
+    border-color: white;
+}
+
+.btn-outline-success:hover {
+    color: white;
+    background-color: rgba( 0, 193, 213, 0.5);
+    border-color: rgba( 0, 193, 213, 0.5);
+}
+
+
+/* Responsive D3 */
+.svg-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: top;
+  overflow: hidden;
+}
+.svg-content {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+
+/* Hardcoded chart size - This needs to be changed */
+.lineStyle {
+  min-width:1500px;
 }

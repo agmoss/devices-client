@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
 
-import { scaleLinear } from 'd3-scale'
-import { max } from 'd3-array'
-import { select } from 'd3-selection'
-
 import * as d3 from "d3";
 
 class D3line extends Component {
@@ -14,30 +10,28 @@ class D3line extends Component {
 
    componentDidMount() {
       this.createLineChart()
-      
    }
 
    componentDidUpdate() {
       //this.createLineChart()
-      
    }
 
    createLineChart() {
 
         const data = this.props.data;
 
-        console.log(data);
-
         // set the dimensions and margins of the graph
         var margin = {top: 10, right: 100, bottom: 30, left: 100},
-            width = 2000 - margin.left - margin.right,
-            height = 800 - margin.top - margin.bottom;
+            width = 1500 - margin.left - margin.right,
+            height = 600 - margin.top - margin.bottom;
 
-        // append the svg object to the body of the page
-        var svg = d3.select("body")
+        // APPEND THE SVG TO !!!!lineDiv!!!!
+        var svg = d3.select("#lineDiv")
         .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0" + width + " " + height)
         .append("g")
             .attr("transform",
                 "translate(" + margin.left + "," + margin.top + ")");
@@ -163,6 +157,17 @@ class D3line extends Component {
             // run the updateChart function with this selected option
             update(selectedOption)
         })
+
+        // Responsive
+        var aspect = width / height,
+            chart = d3.select('#lineDiv');
+
+        d3.select(window)
+        .on("resize", function() {
+            var targetWidth = chart.node().getBoundingClientRect().width;
+            chart.attr("width", targetWidth);
+            chart.attr("height", targetWidth / aspect);
+        });
 
    }
 

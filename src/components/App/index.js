@@ -1,14 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-import Main from '../Main'
+import "bootstrap/dist/css/bootstrap.css";
+
+import NavBar from '../NavBar';
+import LineChart from '../../containers/LineChart';
+import ChartPanel from '../../containers/ChartPanel';
+import DataPanel from '../../containers/DataPanel';
+import Table from '../DataTable'
 
 function App() {
   return (
+
     <div className="App">
-      <select id = "selectStatus"></select>
-      <Main/>
+      <NavBar title="Fleet Dashboard"/>
+
+       <div className="container">
+        <div className="row justify-content-center">
+          <ChartPanel title = "Line">
+            <select id = "selectStatus"></select>
+            <div id = "lineDiv"/>
+            <LineChart/>
+          </ChartPanel>
+        </div>
+
+        <div className="row">
+          <DataPanel title = "Data">
+            <Table/>
+          </DataPanel>
+        </div>
+      </div> 
+
     </div>
   );
 }
