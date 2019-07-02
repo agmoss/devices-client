@@ -23,13 +23,20 @@ class Table extends Component {
           }]
     }
 
+    sortDate(arry){
+      arry.sort(function(a,b){
+        return new Date(b.entry_date) - new Date(a.entry_date);
+      });
+      return arry.slice(Math.max(arry.length - 10, 1))
+    }
+
     componentDidMount(){
 
         const self = this;
     
         fetch('/signal/all')
         .then(resp=> resp.json())
-        .then(json =>self.setState({data:json}))
+        .then(json =>self.setState({data:this.sortDate(json)}))
       }
 
     render() {

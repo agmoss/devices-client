@@ -16,7 +16,7 @@ function App() {
       <NavBar title="Fleet Dashboard"/>
 
        <div className="container">
-        <div className="row">
+        <div className="row justify-content-center">
           <ChartPanel title = "Line">
             <select id = "selectStatus"></select>
             <div id = "lineDiv"/>

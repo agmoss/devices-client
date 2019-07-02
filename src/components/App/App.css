@@ -1,0 +1,68 @@
+.dashboardRow {
+  margin-top: 20px;
+}
+
+.dashboardPanel {
+  margin-top: 20px;
+}
+
+.card {
+  border: none;
+  width: auto;
+}
+
+.card-body {
+  background: rgba(184, 255, 222,0.5);
+  padding: 0px;
+}
+
+.card-title {
+  margin: 0.2rem;
+}
+
+.bg-light {
+    background-color: rgb(184, 255, 222)!important;
+}
+
+.navbar-light .navbar-brand {
+    color: rgba(255,255,255,.9);
+}
+
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+    color: rgba(255,255,255,1);
+}
+
+.btn-outline-success {
+    color: white;
+    border-color: white;
+}
+
+.btn-outline-success:hover {
+    color: white;
+    background-color: rgba( 0, 193, 213, 0.5);
+    border-color: rgba( 0, 193, 213, 0.5);
+}
+
+
+/* Responsive D3 */
+.svg-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: top;
+  overflow: hidden;
+}
+.svg-content {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+
+/* Hardcoded chart size - This needs to be changed */
+.lineStyle {
+  min-width:1500px;
+}
