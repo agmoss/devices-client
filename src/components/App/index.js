@@ -17,7 +17,7 @@ function App() {
 
        <div className="container">
         <div className="row justify-content-center">
-          <ChartPanel title = "Line">
+          <ChartPanel title = "Time Series">
             <select id = "selectStatus"></select>
             <div id = "lineDiv"/>
             <LineChart/>
@@ -25,7 +25,7 @@ function App() {
         </div>
 
         <div className="row">
-          <DataPanel title = "Data">
+          <DataPanel title = "Recent Entries">
             <Table/>
           </DataPanel>
         </div>

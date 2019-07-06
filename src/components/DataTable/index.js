@@ -12,14 +12,16 @@ class Table extends Component {
           },
           {
             dataField: 'entry_date',
-            text: 'Entry Date'
+            text: 'Entry Date',
+            sort: true
           }, {
             dataField: 'AssetUN',
             text: 'AssetUN',
             sort: true
           },{
             dataField: 'status',
-            text: 'Status'
+            text: 'Status',
+            sort: true
           }]
     }
 
@@ -27,6 +29,8 @@ class Table extends Component {
       arry.sort(function(a,b){
         return new Date(b.entry_date) - new Date(a.entry_date);
       });
+
+      // Display top 10 elements
       return arry.slice(Math.max(arry.length - 10, 1))
     }
 
