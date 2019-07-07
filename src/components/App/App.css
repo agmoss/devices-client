@@ -12,16 +12,12 @@
 }
 
 .card-body {
-  background: rgba(184, 255, 222,0.5);
+  background: rgba(236, 236, 236,0.5);
   padding: 0px;
 }
 
 .card-title {
   margin: 0.2rem;
-}
-
-.bg-light {
-    background-color: rgb(184, 255, 222)!important;
 }
 
 .navbar-light .navbar-brand {

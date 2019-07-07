@@ -9,7 +9,8 @@
     "react-bootstrap-table-next": "^3.1.5",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "serve": "^11.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,5 +33,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3005"
+  "proxy": "https://devicesapi.azurewebsites.net"
 }

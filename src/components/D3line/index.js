@@ -110,7 +110,7 @@ class D3line extends Component {
             .attr('fill', 'black');
 
 
-        // Initialize line with group a
+        // Initialize line with Active
         var line = svg
             .append('g')
             .append("path")
@@ -132,8 +132,6 @@ class D3line extends Component {
                     dataFilter.push({date:element.date, value : element["status"][selectedGroup]})
                 }
             });
-
-            console.log(dataFilter);
 
             // Give these new data to update line
             line
