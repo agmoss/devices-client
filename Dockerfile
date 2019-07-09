@@ -1,15 +1,5 @@
-FROM node:latest
-
-# Create app directory
-WORKDIR /app
-ADD . /app
-
-ADD package.json /package.json
-
-ENV NODE_PATH=/node_modules
-ENV PATH=$PATH:/node_modules/.bin
-
-RUN npm install
-
-# TODO: Serve an optimized build
-CMD [ "npm", "start" ]
+FROM nginx:1.15.2-alpine
+COPY ./build /var/www
+COPY nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80
+ENTRYPOINT ["nginx","-g","daemon off;"]

@@ -9,7 +9,7 @@ class LineChart extends Component{
 
         const self = this;
     
-        fetch('/signal/all')
+        fetch('https://devicesapi.azurewebsites.net/signal/all')
         .then(resp=> resp.json())
         .then(json =>self.setState({data:timeSeries(json)}))
     
