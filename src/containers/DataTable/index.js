@@ -1,14 +1,12 @@
 import React,{Component} from 'react';
-import D3line from '../../components/D3line';
-import timeSeries from '../../functions/TimeSeries'
+import BstrapTable from '../../components/BstrapTable';
+import sortDate from '../../functions/SortDate'
 
-class LineChart extends Component{
+class DataSquare extends Component{
     
       componentDidMount(){
-
         const self = this;
-        self.setState({data:timeSeries(this.props.data)})
-    
+        self.setState({data:sortDate(this.props.data)})
       }
 
     render(){
@@ -17,11 +15,11 @@ class LineChart extends Component{
             <div>
                 {/* Async render */}
                 { this.state && this.state.data &&
-                 <div><D3line data= {this.state.data} /> </div>
+                 <div><BstrapTable data= {this.state.data} /> </div>
                 } 
             </div>
         ) 
     }
 }
 
-export default LineChart;
+export default DataSquare;

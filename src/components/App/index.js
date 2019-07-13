@@ -1,38 +1,50 @@
-import React from 'react';
+import React, {Component, Fragment} from 'react';
 import './App.css';
 
 import "bootstrap/dist/css/bootstrap.css";
 
-import NavBar from '../NavBar';
+//Containers
 import LineChart from '../../containers/LineChart';
-import ChartPanel from '../../containers/ChartPanel';
-import DataPanel from '../../containers/DataPanel';
-import Table from '../DataTable'
+import DataSquare from '../../containers/DataTable';
 
-function App() {
-  return (
+// Components
+import NavBar from '../NavBar';
+import ChartPanel from '../ChartPanel';
+import DataPanel from '../DataPanel';
+import withSplashScreen from '../withSplashScreen';
 
-    <div className="App">
-      <NavBar title="Fleet Dashboard"/>
+class App extends Component {
 
-       <div className="container">
-        <div className="row justify-content-center">
-          <ChartPanel title = "Time Series">
-            <select id = "selectStatus"></select>
-            <div id = "lineDiv"/>
-            <LineChart/>
-          </ChartPanel>
-        </div>
+  render() {
+    
+    return (
 
-        <div className="row">
-          <DataPanel title = "Recent Entries">
-            <Table/>
-          </DataPanel>
-        </div>
-      </div> 
+      <Fragment>
 
-    </div>
-  );
+      <div className="App">
+        <NavBar title="Fleet Dashboard"/>
+
+        <div className="container">
+          <div className="row justify-content-center">
+            <ChartPanel title = "Time Series">
+              <select id = "selectStatus"></select>
+              <div id = "lineDiv"/>
+              <LineChart {...this.props}/>
+            </ChartPanel>
+          </div>
+ 
+          <div className="row">
+            <DataPanel title = "Recent Entries">
+              <DataSquare {...this.props}/>
+            </DataPanel>
+          </div>
+        </div> 
+
+      </div>
+
+      </Fragment>
+    );
+  }
 }
 
-export default App;
+export default withSplashScreen(App);
