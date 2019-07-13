@@ -25,19 +25,27 @@ class App extends Component {
         <NavBar title="Fleet Dashboard"/>
 
         <div className="container">
-          <div className="row justify-content-center">
+
+          <div className="card-columns d-flex justify-content-center">
+
             <ChartPanel title = "Time Series">
               <select id = "selectStatus"></select>
               <div id = "lineDiv"/>
               <LineChart {...this.props}/>
             </ChartPanel>
-          </div>
- 
-          <div className="row">
+
             <DataPanel title = "Recent Entries">
               <DataSquare {...this.props}/>
             </DataPanel>
+
           </div>
+ 
+          {/* <div className="row">
+            <DataPanel title = "Recent Entries">
+              <DataSquare {...this.props}/>
+            </DataPanel>
+          </div> */}
+
         </div> 
 
       </div>

@@ -22,8 +22,8 @@ class D3line extends Component {
 
         // set the dimensions and margins of the graph
         var margin = {top: 10, right: 100, bottom: 30, left: 100},
-            width = 1500 - margin.left - margin.right,
-            height = 600 - margin.top - margin.bottom;
+            width = 1200 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
 
         // APPEND THE SVG TO !!!!lineDiv!!!!
         var svg = d3.select("#lineDiv")

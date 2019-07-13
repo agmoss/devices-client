@@ -6,10 +6,7 @@ class BstrapTable extends Component {
 
     state = {
         data: this.props.data,
-        columns: [{
-            dataField: 'key',
-            text: 'key'
-          },
+        columns: [
           {
             dataField: 'entry_date',
             text: 'Entry Date',
