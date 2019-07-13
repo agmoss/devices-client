@@ -2,10 +2,10 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import React,{Component} from 'react';
 
-class Table extends Component {
+class BstrapTable extends Component {
 
     state = {
-        data: [],
+        data: this.props.data,
         columns: [{
             dataField: 'key',
             text: 'key'
@@ -25,24 +25,6 @@ class Table extends Component {
           }]
     }
 
-    sortDate(arry){
-      arry.sort(function(a,b){
-        return new Date(b.entry_date) - new Date(a.entry_date);
-      });
-
-      // Display top 10 elements
-      return arry.slice(Math.max(arry.length - 10, 1))
-    }
-
-    componentDidMount(){
-
-        const self = this;
-    
-        fetch('https://devicesapi.azurewebsites.net/signal/all')
-        .then(resp=> resp.json())
-        .then(json =>self.setState({data:this.sortDate(json)}))
-      }
-
     render() {
         return (
 
@@ -61,4 +43,5 @@ class Table extends Component {
       }
     
     }
-export default Table
+
+export default BstrapTable;
