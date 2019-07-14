@@ -109,6 +109,39 @@ class D3line extends Component {
             .attr('font-family', 'serif')
             .attr('fill', 'black');
 
+        // Define the div for the tooltip
+        var div = d3.select("body").append("div")	
+            .attr("class", "tooltip")				
+            .style("opacity", 0);
+
+        // TODO: Make this more descriptive
+        var formatTime = d3.timeFormat("%e %B");
+        
+        // Add the scatterplot for active
+        svg.selectAll("dot")	
+            .data(data)			
+        .enter().append("circle")								
+            .attr("r", 5)		
+            .attr("cx", function(d) { return x(d.date); })		 
+            .attr("cy", function(d) { return y(d.status['Active']); })	
+            .attr("fill",myColor("Active"))
+            .on("mouseover", function(d) {	
+                d3.select(this).attr("r", 10).style("fill", "red");	
+                div.transition()		
+                    .duration(20)		
+                    .style("opacity", .9);		
+                div.html(formatTime(d.date) + "<br/>"  + d.status['Active'])	
+                    .style("left", (d3.event.pageX) + "px")		
+                    .style("top", (d3.event.pageY - 50) + "px");	
+                })					
+            .on("mouseout", function(d) {	
+                d3.select(this).attr("r", 5).style("fill", myColor("Active"));	
+                div.transition()		
+                    .duration(20)		
+                    .style("opacity", 0);	
+            })
+            .style("opacity", 1);
+
 
         // Initialize line with Active
         var line = svg
@@ -125,6 +158,8 @@ class D3line extends Component {
 
         // A function that update the chart
         function update(selectedGroup) {
+
+            d3.selectAll("circle").remove();
 
             var dataFilter = [];
             data.forEach(element => {
@@ -143,6 +178,37 @@ class D3line extends Component {
                 .y(function(d) { return y(+d.value)})
                 )
                 .attr("stroke", function(d){ return myColor(selectedGroup)})
+
+
+            // Re- draw the scatterplot
+            svg.selectAll("dot")
+                .data(dataFilter)
+            .enter().append("circle")
+                .attr("r", 5)		
+                .attr("cx", function(d) { return x(d.date); })		 
+                .attr("cy", function(d) { return y(d.value); })	
+                .attr("fill",myColor(selectedGroup))	
+                .on("mouseover", function(d) {		
+                    d3.select(this).attr("r", 10).style("fill", "red");	
+                    div.transition()		
+                        .duration(20)		
+                        .style("opacity", .9);		
+                    div.html(formatTime(d.date) + "<br/>"  + d.value)	
+                        .style("left", (d3.event.pageX) + "px")		
+                        .style("top", (d3.event.pageY - 50) + "px");	
+                    })					
+                .on("mouseout", function(d) {	
+                    d3.select(this).attr("r", 5).style("fill", myColor(selectedGroup));	
+                    div.transition()		
+                        .duration(50)		
+                        .style("opacity", 0);	
+                })
+                // Delay the dot render
+                .style("opacity", 0)
+                .transition()
+                .delay(1000)
+                .style("opacity", 1)
+                ;
 
         }
 
