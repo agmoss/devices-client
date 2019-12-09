@@ -9,7 +9,7 @@
     "react-bootstrap-table-next": "^3.1.5",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "3.3.0",
     "serve": "^11.0.2"
   },
   "scripts": {
